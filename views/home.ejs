@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title><%=title%></title>
+        <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="/CSS/Home.css">
+
+    </head>
+    <body>
+
+        <h2>My Contact List </h2>
+        <form action="/create-contact" method="post">
+            <input type = "text" name="name" placeholder="Enter Name" required>
+            <input type="number" name="phone" placeholder="Enter number" required>
+            <button type="submit">Add Contact</button>
+        </form>
+        <ul type="none" class="list">
+            <% for (let i=0; i<contact_List.length; i++) { %>
+                <li class="list-item">  
+                    <b><%= contact_List[i].name%></b> 
+                    <i><%= contact_List[i].phone%></i>
+                    <a href="/delete-contact/?id=<%=contact_List[i].id%>">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </li>          
+                <!-- <br> -->
+            <%}%>
+            
+        </ul>
+        <script type="text/javascript" src="/JS/Home.js"></script>
+        <script src="https://kit.fontawesome.com/fb9831f3fd.js" crossorigin="anonymous"></script>
+    </body>
+</html>
